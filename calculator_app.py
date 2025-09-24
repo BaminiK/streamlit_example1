@@ -54,7 +54,8 @@ def clear_calculator():
     st.session_state.api_response = None
 
 # Function to calculate result by calling the API
-def calculate_result():
+d
+ef calculate_result():
     try:
         if st.session_state.first_number is None or st.session_state.operation is None:
             return
@@ -82,6 +83,8 @@ def calculate_result():
         st.session_state.display = "Connection Error"
     except Exception as e:
         st.session_state.display = f"Error: {str(e)[:10]}"
+if st.session_state.display.startswith("Error"):
+    st.error(st.session_state.display)
 
 # Create the calculator layout with CSS Grid-like appearance
 col1, col2, col3, col4 = st.columns(4)
