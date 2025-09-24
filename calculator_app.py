@@ -1,24 +1,13 @@
 import streamlit as st
 import requests
 import json
-from fastapi.middleware.cors import CORSMiddleware
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  # or your streamlit.app domain
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
 st.title("Calculator App")
 st.write("This app connects to a FastAPI calculator service.")
 
 # Define the API base URL
 
-#api_url = "http://localhost:9322"
-
-api_url = "https://api-example-bamini.onrender.com"
+api_url = "https://api-example-bamini.onrender.com/docs"
 
 # Initialize session state to store the calculator display and current operation
 if 'display' not in st.session_state:
@@ -91,8 +80,6 @@ def calculate_result():
         st.session_state.display = "Connection Error"
     except Exception as e:
         st.session_state.display = f"Error: {str(e)[:10]}"
-if st.session_state.display.startswith("Error"):
-    st.error(st.session_state.display)
 
 # Create the calculator layout with CSS Grid-like appearance
 col1, col2, col3, col4 = st.columns(4)
@@ -147,7 +134,7 @@ if st.session_state.api_response:
 st.markdown("---")
 st.subheader("How to use this calculator")
 st.markdown("""
-1. Make sure the FastAPI calculator service is running at https://api-example-bamini.onrender.com
+1. Make sure the FastAPI calculator service is running at http://0.0.0.0:9321
 2. Use the calculator buttons to input numbers and operations
 3. Click "=" to calculate the result by calling the API
 4. Click "C" to clear the calculator
