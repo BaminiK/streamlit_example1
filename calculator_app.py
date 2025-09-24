@@ -9,7 +9,7 @@ st.write("This app connects to a FastAPI calculator service.")
 
 #api_url = "http://localhost:9322"
 
-api_url = "https://api-example-bamini.onrender.com\docs"
+api_url = "https://api-example-bamini.onrender.com"
 
 # Initialize session state to store the calculator display and current operation
 if 'display' not in st.session_state:
