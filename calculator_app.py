@@ -1,6 +1,15 @@
 import streamlit as st
 import requests
 import json
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # or your streamlit.app domain
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 st.title("Calculator App")
 st.write("This app connects to a FastAPI calculator service.")
