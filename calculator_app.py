@@ -54,8 +54,7 @@ def clear_calculator():
     st.session_state.api_response = None
 
 # Function to calculate result by calling the API
-d
-ef calculate_result():
+def calculate_result():
     try:
         if st.session_state.first_number is None or st.session_state.operation is None:
             return
